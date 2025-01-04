@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Travels';
+  src: url('./TT_Travels_Text_Medium.woff2') format('woff2'),
+    url('./TT_Travels_Text_Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+.hello {
+  font-family: 'Travels', sans-serif;
+  color: red;
+  background: url('./image.png');
+}

@@ -4,14 +4,16 @@
   "main": "index.js",
   "scripts": {
     "start": "echo \"Error: no test specified\" && exit 1",
-    "build:dev": "npx webpack",
-    "build:prod": "npx webpack",
+    "build:dev": "webpack",
+    "build:prod": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "css-loader": "^7.1.2",
+    "style-loader": "^4.0.0",
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1"
   },
