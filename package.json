@@ -1,12 +1,10 @@
 {
   "name": "basic",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "start": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --open",
     "build:dev": "webpack",
-    "build:prod": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:prod": "webpack"
   },
   "author": "",
   "license": "ISC",
@@ -16,7 +14,8 @@
     "html-webpack-plugin": "^5.6.3",
     "style-loader": "^4.0.0",
     "webpack": "^5.97.1",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
   },
   "dependencies": {
     "lodash": "^4.17.21"

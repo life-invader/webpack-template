@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import img from './image.png';
-import dataJSON from './data.json';
-import printMe from './print.js';
+import img from '#images/image.png';
+import dataJSON from '../public/data.json';
+import { printMe } from './print.js';
 import './style.css';
 
 function component() {
