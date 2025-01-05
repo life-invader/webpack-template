@@ -1,19 +1,22 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const mode = process.env.NODE_ENV || 'development';
+const isDevMode = mode === 'development';
+const devtool = isDevMode ? 'inline-source-map' : undefined;
+
 module.exports = {
   mode: 'development',
-  devtool: 'inline-source-map',
+  devtool,
   devServer: {
     static: './build',
     hot: true,
   },
   entry: {
-    index: './src/index.js',
+    index: path.resolve(__dirname, 'src'),
   },
   output: {
     filename: '[name].[contenthash].js',
-    // assetModuleFilename: 'assets/[name].[ext]',
     path: path.resolve(__dirname, 'build'),
     clean: true,
   },
@@ -37,11 +40,24 @@ module.exports = {
           filename: 'fonts/[name].[ext]',
         },
       },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Development',
+      title: 'Шаблон Frontend',
+      template: path.resolve(__dirname, 'src', 'index.html'),
+      filename: '[name].html',
+      favicon: '',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'О сайте',
+      template: path.resolve(__dirname, 'src', 'about.html'),
+      filename: 'about.html',
+      favicon: '',
     }),
   ],
   resolve: {
