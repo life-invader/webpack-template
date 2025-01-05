@@ -58,6 +58,12 @@ module.exports = {
       favicon: '',
     }),
     new HtmlWebpackPlugin({
+      title: 'Контакты',
+      template: path.resolve(__dirname, 'src', 'pages', 'contacts.html'),
+      filename: 'contacts.html',
+      favicon: '',
+    }),
+    new HtmlWebpackPlugin({
       title: 'О сайте',
       template: path.resolve(__dirname, 'src', 'pages', 'about.html'),
       filename: 'about.html',

@@ -1,0 +1,16 @@
+.footer {
+  position: sticky;
+  top: 0;
+  color: white;
+  background-color: black;
+}
+
+.footer__list {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.footer__link {
+  color: inherit;
+}

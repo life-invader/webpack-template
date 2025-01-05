@@ -1,7 +1,7 @@
 import img from '#images/image.png';
 import dataJSON from '#public/data.json';
 import { printMe } from './scripts/print';
-import './style.css';
+import './style/index.css';
 
 printMe();
 

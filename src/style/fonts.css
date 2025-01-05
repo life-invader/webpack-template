@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Travels';
+  src: url('../../public/assets/fonts/TT_Travels_Text_Medium.woff2') format('woff2'),
+    url('../../public/assets/fonts/TT_Travels_Text_Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
