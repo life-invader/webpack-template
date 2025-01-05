@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const mode = process.env.NODE_ENV || 'development';
 const isDevMode = mode === 'development';
@@ -9,22 +10,22 @@ module.exports = {
   mode: 'development',
   devtool,
   devServer: {
-    static: './build',
+    static: path.resolve(__dirname, 'build'),
     hot: true,
   },
   entry: {
     index: path.resolve(__dirname, 'src'),
   },
   output: {
-    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'build'),
+    filename: 'js/[name].[contenthash].js',
     clean: true,
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -47,15 +48,18 @@ module.exports = {
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'css/style.[contenthash].css',
+    }),
     new HtmlWebpackPlugin({
       title: 'Шаблон Frontend',
-      template: path.resolve(__dirname, 'src', 'index.html'),
+      template: path.resolve(__dirname, 'src', 'pages', 'index.html'),
       filename: '[name].html',
       favicon: '',
     }),
     new HtmlWebpackPlugin({
       title: 'О сайте',
-      template: path.resolve(__dirname, 'src', 'about.html'),
+      template: path.resolve(__dirname, 'src', 'pages', 'about.html'),
       filename: 'about.html',
       favicon: '',
     }),
