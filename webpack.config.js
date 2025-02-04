@@ -1,22 +1,25 @@
-const path = require('path');
-const fs = require('fs');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+import { dirname, resolve } from 'path';
+import { readdirSync } from 'fs';
+import { fileURLToPath } from 'url';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const getPages = () => {
-  const pages = fs.readdirSync(path.resolve(__dirname, 'src', 'pages'));
-  
+  const pages = readdirSync(resolve(__dirname, 'src', 'pages'));
+
   return pages.map(
     (page) =>
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'src', 'pages', page),
+        template: resolve(__dirname, 'src', 'pages', page),
         filename: page,
         favicon: '',
       }),
   );
 };
 
-module.exports = (env) => {
+export default (env) => {
   const mode = env.NODE_ENV || 'development';
   const isDevMode = mode === 'development';
   const devtool = isDevMode ? 'inline-source-map' : undefined;
@@ -25,14 +28,14 @@ module.exports = (env) => {
     mode: 'development',
     devtool,
     devServer: {
-      static: path.resolve(__dirname, 'build'),
+      static: resolve(__dirname, 'build'),
       hot: true,
     },
     entry: {
-      index: path.resolve(__dirname, 'src'),
+      index: resolve(__dirname, 'src'),
     },
     output: {
-      path: path.resolve(__dirname, 'build'),
+      path: resolve(__dirname, 'build'),
       filename: 'js/[name].[contenthash].js',
       clean: true,
     },
@@ -70,9 +73,9 @@ module.exports = (env) => {
     ],
     resolve: {
       alias: {
-        '#public': path.resolve(__dirname, 'public'),
-        '#images': path.resolve(__dirname, 'public', 'assets', 'images'),
-        '#icons': path.resolve(__dirname, 'public', 'assets', 'icons'),
+        '#public': resolve(__dirname, 'public'),
+        '#images': resolve(__dirname, 'public', 'assets', 'images'),
+        '#icons': resolve(__dirname, 'public', 'assets', 'icons'),
       },
       mainFiles: ['index'],
     },
