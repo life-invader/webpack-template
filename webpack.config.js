@@ -1,6 +1,20 @@
 const path = require('path');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const getPages = () => {
+  const pages = fs.readdirSync(path.resolve(__dirname, 'src', 'pages'));
+  
+  return pages.map(
+    (page) =>
+      new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, 'src', 'pages', page),
+        filename: page,
+        favicon: '',
+      }),
+  );
+};
 
 module.exports = (env) => {
   const mode = env.NODE_ENV || 'development';
@@ -52,30 +66,15 @@ module.exports = (env) => {
       new MiniCssExtractPlugin({
         filename: 'css/style.[contenthash].css',
       }),
-      new HtmlWebpackPlugin({
-        title: 'Шаблон Frontend',
-        template: path.resolve(__dirname, 'src', 'pages', 'index.html'),
-        filename: '[name].html',
-        favicon: '',
-      }),
-      new HtmlWebpackPlugin({
-        title: 'Контакты',
-        template: path.resolve(__dirname, 'src', 'pages', 'contacts.html'),
-        filename: 'contacts.html',
-        favicon: '',
-      }),
-      new HtmlWebpackPlugin({
-        title: 'О сайте',
-        template: path.resolve(__dirname, 'src', 'pages', 'about.html'),
-        filename: 'about.html',
-        favicon: '',
-      }),
+      ...getPages(),
     ],
     resolve: {
       alias: {
         '#public': path.resolve(__dirname, 'public'),
         '#images': path.resolve(__dirname, 'public', 'assets', 'images'),
+        '#icons': path.resolve(__dirname, 'public', 'assets', 'icons'),
       },
+      mainFiles: ['index'],
     },
   };
 };
