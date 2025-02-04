@@ -19,6 +19,8 @@ const getPages = () => {
   );
 };
 
+const svsdv = 3;
+
 export default (env) => {
   const mode = env.NODE_ENV || 'development';
   const isDevMode = mode === 'development';
@@ -78,6 +80,7 @@ export default (env) => {
         '#icons': resolve(__dirname, 'public', 'assets', 'icons'),
       },
       mainFiles: ['index'],
+      extensions: ['.js'],
     },
   };
 };

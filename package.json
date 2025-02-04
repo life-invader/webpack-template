@@ -1,10 +1,13 @@
 {
   "name": "basic",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "start": "webpack serve --open",
     "build:dev": "webpack",
-    "build:prod": "webpack --env NODE_ENV=production"
+    "build:prod": "webpack --env NODE_ENV=production",
+    "lint": "npx eslint",
+    "lint:fix": "npx eslint --fix"
   },
   "author": "",
   "license": "ISC",
