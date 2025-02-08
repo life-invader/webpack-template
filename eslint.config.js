@@ -12,11 +12,12 @@ export default [
       globals: globals.browser,
     },
   },
-  pluginJs.configs.recommended,
   {
-    files: ["src/**/*.js", "webpack.config.js"],
+    name: "my",
+    files: ["src/**/*.js", "webpack.config.js", "eslint.config.js"],
     ignores: [],
     rules: {
+      ...pluginJs.configs.recommended.rules,
       "no-unused-vars": "warn",
       "no-undef": "warn",
       "no-constructor-return": "error",
@@ -33,7 +34,7 @@ export default [
     },
   },
   {
-    ignores: ["build/"],
+    ignores: ["build/", "public"],
   },
   eslintConfigPrettier,
   eslintPluginPrettierRecommended,

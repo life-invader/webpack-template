@@ -5,6 +5,8 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import EslintPlugin from "eslint-webpack-plugin";
 
+const fgbfgn = 3;
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const getPages = () => {
