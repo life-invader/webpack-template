@@ -13,9 +13,21 @@ export default [
   pluginJs.configs.recommended,
   {
     files: ['src/**/*.js', 'webpack.config.js'],
+    ignores: [],
     rules: {
       'no-unused-vars': 'warn',
       'no-undef': 'warn',
+      'no-constructor-return': 'error',
+      'no-duplicate-imports': 'error',
+      'no-self-compare': 'error',
+      'no-template-curly-in-string': 'error',
+      'no-use-before-define': 'error',
+      'array-callback-return': [
+        'warn',
+        {
+          checkForEach: true,
+        },
+      ],
     },
   },
   {

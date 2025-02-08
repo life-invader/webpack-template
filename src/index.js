@@ -4,7 +4,20 @@ import { printMe } from './scripts/print.js';
 import './style/index.css';
 
 const sdb = 0;
+const makebread = 0;
 console.log(123);
+
+[1, 2, 3].filter((item) => {
+  item > 1;
+});
+
+[1, 2, 3].forEach((item) => {
+  return item > 1;
+});
+
+if (true) {
+  console.log(true);
+}
 
 printMe();
 
