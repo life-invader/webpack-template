@@ -1,61 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="preload"
+      href="/public/assets/fonts/TT_Travels_Text_Medium.woff"
+      as="font"
+      type="font/woff"
+    />
+    <link
+      rel="preload"
+      href="/public/assets/fonts/TT_Travels_Text_Medium.woff2"
+      as="font"
+      type="font/woff2"
+    />
+    <title>Шаблон Frontend</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preload" href="/public/assets/fonts/TT_Travels_Text_Medium.woff" as="font" type="font/woff">
-  <link rel="preload" href="/public/assets/fonts/TT_Travels_Text_Medium.woff2" as="font" type="font/woff2">
-  <title>Шаблон Frontend</title>
-</head>
-
-<body>
-  <header class="header">
-    <div class="container">
-      <ul class="header__list">
-        <li class="header__listItem">
-          <a class="header__link">Главная</a>
-        </li>
-
-        <li class="header__listItem">
-          <a class="header__link" href="./contacts.html">Контакты</a>
-        </li>
-
-        <li class="header__listItem">
-          <a class="header__link" href="./about.html">О сайте</a>
-        </li>
-      </ul>
-    </div>
-  </header>
-
-  <main class="main">
-    <section class="section">
+  <body>
+    <header class="header">
       <div class="container">
-        <div class="section__content">
-          <h1>Главная страница</h1>
-          <img src="/public/assets/images/image.png" alt="">
-        </div>
+        <ul class="header__list">
+          <li class="header__listItem">
+            <a class="header__link">Главная</a>
+          </li>
+
+          <li class="header__listItem">
+            <a class="header__link" href="./contacts.html">Контакты</a>
+          </li>
+
+          <li class="header__listItem">
+            <a class="header__link" href="./about.html">О сайте</a>
+          </li>
+        </ul>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <footer class="footer">
-    <div class="container">
-      <ul class="footer__list">
-        <li class="footer__listItem">
-          <a class="footer__link">Главная</a>
-        </li>
+    <main class="main">
+      <section class="section">
+        <div class="container">
+          <div class="section__content">
+            <h1>Главная страница</h1>
+            <img src="/public/assets/images/image.png" alt="" />
+          </div>
+        </div>
+      </section>
+    </main>
 
-        <li class="footer__listItem">
-          <a class="footer__link" href="./contacts.html">Контакты</a>
-        </li>
+    <footer class="footer">
+      <div class="container">
+        <ul class="footer__list">
+          <li class="footer__listItem">
+            <a class="footer__link">Главная</a>
+          </li>
 
-        <li class="footer__listItem">
-          <a class="footer__link" href="./about.html">О сайте</a>
-        </li>
-      </ul>
-    </div>
-  </footer>
-</body>
+          <li class="footer__listItem">
+            <a class="footer__link" href="./contacts.html">Контакты</a>
+          </li>
 
+          <li class="footer__listItem">
+            <a class="footer__link" href="./about.html">О сайте</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
 </html>

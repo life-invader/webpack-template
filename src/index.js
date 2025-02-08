@@ -1,13 +1,12 @@
-import img from '#images/image.png';
-import dataJSON from '#public/data.json';
-import { printMe } from './scripts/print.js';
-import './style/index.css';
+import img from "#images/image.png";
+import dataJSON from "#public/data.json";
+import { printMe } from "./scripts/print.js";
+import "./style/index.css";
 
 const sdb = 0;
-const makebread = 0;
 console.log(123);
 
-[1, 2, 3].filter((item) => {
+[(1, 2, 3)].filter((item) => {
   item > 1;
 });
 
