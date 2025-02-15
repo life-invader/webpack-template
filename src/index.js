@@ -5,5 +5,7 @@ import "./style/index.css";
 
 printMe();
 
+const unUsedVar = 1;
+
 console.log(img);
 console.log(dataJSON);
