@@ -5,6 +5,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import EslintPlugin from "eslint-webpack-plugin";
 import StylelintPlugin from "stylelint-webpack-plugin";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -99,6 +100,12 @@ export default (env) => {
       },
       mainFiles: ["index"],
       extensions: [".js"],
+    },
+    optimization: {
+      minimizer: ["...", new CssMinimizerPlugin()],
+      splitChunks: {
+        chunks: "all",
+      },
     },
   };
 };
