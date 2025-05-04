@@ -9,7 +9,7 @@ import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const getPages = (isDevMode) => {
+const getPages = () => {
   const pages = readdirSync(resolve(__dirname, "src", "pages"));
 
   return pages.map(
