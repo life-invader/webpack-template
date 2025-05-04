@@ -26,8 +26,10 @@ export default (env) => {
   const isDevMode = mode === "development";
   const devtool = isDevMode ? "inline-source-map" : undefined;
 
+  console.log(env);
+
   return {
-    mode: "development",
+    mode: mode,
     devtool,
     devServer: {
       static: resolve(__dirname, "build"),
