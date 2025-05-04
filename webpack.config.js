@@ -9,7 +9,7 @@ import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const getPages = () => {
+const getPages = (isDevMode) => {
   const pages = readdirSync(resolve(__dirname, "src", "pages"));
 
   return pages.map(
@@ -26,8 +26,6 @@ export default (env) => {
   const mode = env.NODE_ENV || "development";
   const isDevMode = mode === "development";
   const devtool = isDevMode ? "inline-source-map" : undefined;
-
-  console.log(env);
 
   return {
     mode: mode,
@@ -90,7 +88,7 @@ export default (env) => {
       new MiniCssExtractPlugin({
         filename: "css/style.[contenthash].css",
       }),
-      ...getPages(),
+      ...getPages(isDevMode),
     ],
     resolve: {
       alias: {
