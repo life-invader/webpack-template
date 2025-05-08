@@ -1,14 +1,17 @@
 .footer {
+  --footerBgColor: rgb(114 56 56);
+
   position: sticky;
   top: 0;
-  color: white;
-  background-color: black;
+  color: var(--color);
+  background-color: var(--footerBgColor);
 }
 
 .footer__list {
   display: flex;
   gap: 16px;
   padding: 16px 0;
+  background-color: var(--footerBgColor);
 }
 
 .footer__link {

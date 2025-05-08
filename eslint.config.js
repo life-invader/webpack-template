@@ -25,6 +25,7 @@ export default [
       "no-self-compare": "error",
       "no-template-curly-in-string": "error",
       "no-use-before-define": "error",
+      "no-console": "warn",
       "array-callback-return": [
         "warn",
         {
@@ -34,7 +35,7 @@ export default [
     },
   },
   {
-    ignores: ["build/", "public"],
+    ignores: ["build", "public"],
   },
   eslintConfigPrettier,
   eslintPluginPrettierRecommended,
