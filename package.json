@@ -8,8 +8,8 @@
     "build:prod": "webpack --env NODE_ENV=production",
     "lint": "npx eslint",
     "lint:fix": "npx eslint --fix",
-    "stylelint": "npx stylelint '**/*.css'",
-    "stylelint:fix": "npx stylelint '**/*.css' --fix"
+    "stylelint": "npx stylelint \"**/*.css\"",
+    "stylelint:fix": "npx stylelint \"**/*.css\" --fix"
   },
   "author": "",
   "license": "ISC",
