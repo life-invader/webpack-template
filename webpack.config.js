@@ -10,7 +10,9 @@ import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const getPages = () => {
-  const pages = readdirSync(resolve(__dirname, "src", "pages"));
+  const pages = readdirSync(resolve(__dirname, "src", "pages")).filter(
+    (item) => extname(item) === ".jsx",
+  );
   const pageNamesNoExt = pages.map((item) => basename(item, extname(item)));
 
   return pageNamesNoExt.map(
