@@ -1,4 +1,4 @@
-import { dirname, resolve } from "path";
+import { dirname, resolve, basename, extname } from "path";
 import { readdirSync } from "fs";
 import { fileURLToPath } from "url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
@@ -11,16 +11,19 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const getPages = () => {
   const pages = readdirSync(resolve(__dirname, "src", "pages"));
+  const pageNamesNoExt = pages.map((item) => basename(item, extname(item)));
 
-  return pages.map(
+  return pageNamesNoExt.map(
     (page) =>
       new HtmlWebpackPlugin({
-        template: resolve(__dirname, "src", "pages", page),
-        filename: page,
+        template: resolve(__dirname, "src", "pages", `${page}.jsx`),
+        filename: `${page}.html`,
         favicon: "",
       }),
   );
 };
+
+getPages();
 
 export default (env) => {
   const mode = env.NODE_ENV || "development";
@@ -31,11 +34,12 @@ export default (env) => {
     mode: mode,
     devtool,
     devServer: {
-      static: resolve(__dirname, "build"),
+      watchFiles: ["src/**/*"],
+      port: "auto",
       hot: true,
     },
     entry: {
-      index: resolve(__dirname, "src"),
+      index: resolve(__dirname, "src", "app", "app.js"),
     },
     output: {
       path: resolve(__dirname, "build"),
@@ -44,6 +48,27 @@ export default (env) => {
     },
     module: {
       rules: [
+        {
+          test: /\.(js)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
+            options: {
+              targets: "defaults",
+              presets: [["@babel/preset-env"]],
+            },
+          },
+        },
+        {
+          test: /\.(jsx)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
+            options: {
+              presets: [["@babel/preset-react", { runtime: "automatic" }]],
+            },
+          },
+        },
         {
           test: /\.css$/i,
           use: [
@@ -63,14 +88,14 @@ export default (env) => {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: "asset/resource",
           generator: {
-            filename: "images/[name].[ext]",
+            filename: "images/[name][ext]",
           },
         },
         {
           test: /\.(woff|woff2)$/i,
           type: "asset/resource",
           generator: {
-            filename: "fonts/[name].[ext]",
+            filename: "fonts/[name][ext]",
           },
         },
         {
@@ -92,12 +117,14 @@ export default (env) => {
     ],
     resolve: {
       alias: {
-        "#public": resolve(__dirname, "public"),
-        "#images": resolve(__dirname, "public", "assets", "images"),
-        "#icons": resolve(__dirname, "public", "assets", "icons"),
+        "@public": resolve(__dirname, "public"),
+        "@images": resolve(__dirname, "public", "assets", "images"),
+        "@icons": resolve(__dirname, "public", "assets", "icons"),
+        "@widgets": resolve(__dirname, "src", "widgets"),
+        "@shared": resolve(__dirname, "src", "shared"),
       },
       mainFiles: ["index"],
-      extensions: [".js"],
+      extensions: [".js", ".jsx"],
     },
     optimization: {
       minimizer: ["...", new CssMinimizerPlugin()],

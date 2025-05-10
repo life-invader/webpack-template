@@ -1,5 +1,5 @@
 // Импорт всех .css файлов из папки style
-const cssContext = import.meta.webpackContext(".", {
+const cssContext = import.meta.webpackContext("../../", {
   recursive: true,
   regExp: /\.css$/,
   mode: "sync",

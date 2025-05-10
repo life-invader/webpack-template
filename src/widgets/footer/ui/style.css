@@ -1,0 +1,16 @@
+.footer {
+  --footerBgColor: rgb(0 0 0);
+
+  color: #fff;
+  background-color: var(--footerBgColor);
+
+  .footer__list {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .footer__link {
+    color: inherit;
+  }
+}

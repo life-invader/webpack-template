@@ -2,10 +2,10 @@
   position: sticky;
   top: 0;
   background-color: blanchedalmond;
-}
 
-.header__list {
-  display: flex;
-  gap: 16px;
-  padding: 16px 0;
+  .header__list {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+  }
 }
