@@ -30,7 +30,7 @@ getPages();
 export default (env) => {
   const mode = env.NODE_ENV || "development";
   const isDevMode = mode === "development";
-  const devtool = isDevMode ? "inline-source-map" : undefined;
+  const devtool = isDevMode ? "eval-source-map" : undefined;
 
   return {
     mode: mode,
