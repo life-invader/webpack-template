@@ -23,9 +23,10 @@
     "babel-loader": "^10.0.0",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.2",
-    "eslint": "^9.19.0",
+    "eslint": "^9.26.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.5",
     "eslint-webpack-plugin": "^4.2.0",
     "globals": "^15.14.0",
     "html-loader": "^5.1.0",
@@ -34,8 +35,6 @@
     "postcss": "^8.5.3",
     "postcss-loader": "^8.1.1",
     "prettier": "3.4.2",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
     "style-loader": "^4.0.0",
     "stylelint": "^16.14.1",
     "stylelint-config-standard": "^37.0.0",
@@ -44,5 +43,9 @@
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0"
   },
-  "browserslist": "> 0.25%, not dead"
+  "browserslist": "> 0.25%, not dead",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
 }

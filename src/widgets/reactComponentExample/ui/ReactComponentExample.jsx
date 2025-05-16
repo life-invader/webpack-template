@@ -1,7 +1,7 @@
 import { ReactComponentExampleContainer } from "./ReactComponentExampleContainer.jsx";
 import { useState } from "react";
 
-export const ReactComponentExample = ({btnText = ""}) => {
+export const ReactComponentExample = ({ btnText = "" }) => {
   const [number, setNumber] = useState(0);
 
   const buttonClickHandler = () => {
@@ -12,7 +12,8 @@ export const ReactComponentExample = ({btnText = ""}) => {
     <div className="reactComponent">
       <div>ReactComponentExample</div>
       <p>{number}</p>
-      <button onClick={buttonClickHandler}>{btnText}</button>
+      <button onClick={buttonClickHandler}>-1</button>
+      <button onClick={buttonClickHandler}>+1</button>
     </div>
   );
 };

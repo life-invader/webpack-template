@@ -1,9 +1,9 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { Page } from "@shared/page";
 
-const title = "Главная страница";
+const title = "О компании";
 
-const Main = () => {
+const About = () => {
   return (
     <Page title={title}>
       <section>
@@ -16,4 +16,4 @@ const Main = () => {
   );
 };
 
-export default renderToStaticMarkup(<Main />);
+export default renderToStaticMarkup(<About />);

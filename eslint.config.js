@@ -2,15 +2,22 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import eslintPluginReact from "eslint-plugin-react";
+import { defineConfig } from "eslint/config";
 
 /**
  * @type {import('eslint').Linter.Config[]}
  * */
-export default [
+export default defineConfig([
   {
     languageOptions: {
       globals: globals.browser,
     },
+  },
+  {
+    files: ["src/**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
+    ...eslintPluginReact.configs.flat.recommended,
+    ...eslintPluginReact.configs.flat["jsx-runtime"],
   },
   {
     name: "my",
@@ -34,9 +41,10 @@ export default [
       ],
     },
   },
+  // Global ignores. Остальные объекты конфигурации eslint используют их
   {
     ignores: ["build", "public"],
   },
   eslintConfigPrettier,
   eslintPluginPrettierRecommended,
-];
+]);

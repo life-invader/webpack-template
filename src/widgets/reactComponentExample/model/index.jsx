@@ -7,8 +7,12 @@ export class ReactComponentExampleModel {
   container = null;
 
   constructor() {
-    this.container = document.querySelector(ReactComponentExampleModel.selector);
-    this.props = JSON.parse(this.container?.dataset[ReactComponentExampleModel.propsAttr]);
+    this.container = document.querySelector(
+      ReactComponentExampleModel.selector,
+    );
+    this.props = JSON.parse(
+      this.container?.dataset[ReactComponentExampleModel.propsAttr] || "{}",
+    );
 
     this.render();
   }

@@ -1,5 +1,5 @@
-import { Header } from "@widgets/header/index.js";
-import { Footer } from "@widgets/footer/ui/Footer";
+import { Header } from "@widgets/header";
+import { Footer } from "@widgets/footer";
 
 export const Page = ({ children, title = "Document" }) => {
   return (
@@ -7,6 +7,13 @@ export const Page = ({ children, title = "Document" }) => {
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+          rel="preload"
+          as="font"
+          type="font/woff2"
+          crossorigin="anonymous" /* Шрифты, предзагруженные без атрибута crossorigin, будут загружены дважды! */
+          href="fonts/TT_Travels_Text_Medium.woff2"
+        />
         <title>{title}</title>
       </head>
       <body>
