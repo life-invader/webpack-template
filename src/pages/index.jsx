@@ -30,9 +30,9 @@ const Index = () => {
           <h1>{title}</h1>
 
           <ul>
-            {pages.map(({ href, label }) => (
-              <li>
-                <a href={href} target="_blank">
+            {pages.map(({ href, label }, index) => (
+              <li key={index}>
+                <a href={href} target="_blank" rel="noreferrer">
                   {label}
                 </a>
               </li>

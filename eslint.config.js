@@ -1,28 +1,15 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import eslintPluginReact from "eslint-plugin-react";
 import { defineConfig } from "eslint/config";
 
-/**
- * @type {import('eslint').Linter.Config[]}
- * */
 export default defineConfig([
   {
+    files: ["**/*.{js,jsx}"],
     languageOptions: {
       globals: globals.browser,
     },
-  },
-  {
-    files: ["src/**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
-    ...eslintPluginReact.configs.flat.recommended,
-    ...eslintPluginReact.configs.flat["jsx-runtime"],
-  },
-  {
-    name: "my",
-    files: ["src/**/*.js", "webpack.config.js", "eslint.config.js"],
-    ignores: [],
     rules: {
       ...pluginJs.configs.recommended.rules,
       "no-unused-vars": "warn",
@@ -33,18 +20,21 @@ export default defineConfig([
       "no-template-curly-in-string": "error",
       "no-use-before-define": "error",
       "no-console": "warn",
-      "array-callback-return": [
-        "warn",
-        {
-          checkForEach: true,
-        },
-      ],
+      "react/prop-types": "warn",
     },
   },
-  // Global ignores. Остальные объекты конфигурации eslint используют их
+  pluginJs.configs.recommended,
   {
-    ignores: ["build", "public"],
+    ...eslintPluginReact.configs.flat.recommended,
+    rules: {
+      ...eslintPluginReact.configs.flat.recommended.rules,
+      "no-unused-vars": "warn",
+      "react/prop-types": "off",
+    },
+  },
+  eslintPluginReact.configs.flat["jsx-runtime"],
+  {
+    ignores: ["dist", "build", "node_modules"],
   },
   eslintConfigPrettier,
-  eslintPluginPrettierRecommended,
 ]);

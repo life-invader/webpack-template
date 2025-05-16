@@ -18,7 +18,7 @@ const Main = () => {
       <section>
         <div className="container">
           <h2>Пример React-компонента</h2>
-          <ReactComponentExample.Container btnText={"setNumber + 1"} />
+          <ReactComponentExample.Container someProp={"exampleProp"} />
         </div>
       </section>
 

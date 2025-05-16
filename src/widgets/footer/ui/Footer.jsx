@@ -10,8 +10,8 @@ export const Footer = (props) => {
     <header className="footer">
       <div className="container">
         <ul className="footer__list">
-          {links.map(({ label, href }) => (
-            <li className="footer__listItem">
+          {links.map(({ label, href }, index) => (
+            <li className="footer__listItem" key={index}>
               <a className="footer__link" href={href}>
                 {label}
               </a>

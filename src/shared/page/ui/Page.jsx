@@ -11,7 +11,7 @@ export const Page = ({ children, title = "Document" }) => {
           rel="preload"
           as="font"
           type="font/woff2"
-          crossorigin="anonymous" /* Шрифты, предзагруженные без атрибута crossorigin, будут загружены дважды! */
+          crossOrigin="anonymous" /* Шрифты, предзагруженные без атрибута crossorigin, будут загружены дважды! */
           href="fonts/TT_Travels_Text_Medium.woff2"
         />
         <title>{title}</title>

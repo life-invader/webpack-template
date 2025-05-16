@@ -1,7 +1,7 @@
 import { ReactComponentExampleContainer } from "./ReactComponentExampleContainer.jsx";
 import { useState } from "react";
 
-export const ReactComponentExample = ({ btnText = "" }) => {
+export const ReactComponentExample = () => {
   const [number, setNumber] = useState(0);
 
   const buttonClickHandler = () => {
