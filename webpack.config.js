@@ -25,8 +25,6 @@ const getPages = () => {
   );
 };
 
-getPages();
-
 export default (env) => {
   const mode = env.NODE_ENV || "development";
   const isDevMode = mode === "development";
@@ -125,7 +123,7 @@ export default (env) => {
           { from: "public/**/manifest.json", to: "[name][ext]" },
         ],
       }),
-      ...getPages(isDevMode),
+      ...getPages(),
     ],
     resolve: {
       alias: {
