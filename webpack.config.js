@@ -6,6 +6,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import EslintPlugin from "eslint-webpack-plugin";
 import StylelintPlugin from "stylelint-webpack-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+import CopyWebpackPlugin from "copy-webpack-plugin";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -20,7 +21,6 @@ const getPages = () => {
       new HtmlWebpackPlugin({
         template: resolve(__dirname, "src", "pages", `${page}.jsx`),
         filename: `${page}.html`,
-        favicon: "",
       }),
   );
 };
@@ -87,7 +87,7 @@ export default (env) => {
           ],
         },
         {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
           type: "asset/resource",
           generator: {
             filename: "images/[name][ext]",
@@ -114,6 +114,16 @@ export default (env) => {
       }),
       new MiniCssExtractPlugin({
         filename: "css/style.[contenthash].css",
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: "public/assets/icons",
+            to: "icons",
+          },
+          { from: "public/**/*.ico", to: "[name][ext]" },
+          { from: "public/**/manifest.json", to: "[name][ext]" },
+        ],
       }),
       ...getPages(isDevMode),
     ],
