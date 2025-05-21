@@ -43,29 +43,22 @@ export default (env) => {
     },
     output: {
       path: resolve(__dirname, "build"),
-      filename: "js/[name].[contenthash].js",
+      filename: "js/bundle.[contenthash].js",
       clean: true,
     },
     module: {
       rules: [
         {
-          test: /\.(js)$/,
+          test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: {
             loader: "babel-loader",
             options: {
               targets: "defaults",
-              presets: [["@babel/preset-env"]],
-            },
-          },
-        },
-        {
-          test: /\.(jsx)$/,
-          exclude: /node_modules/,
-          use: {
-            loader: "babel-loader",
-            options: {
-              presets: [["@babel/preset-react", { runtime: "automatic" }]],
+              presets: [
+                "@babel/preset-env",
+                ["@babel/preset-react", { runtime: "automatic" }],
+              ],
             },
           },
         },
@@ -89,6 +82,11 @@ export default (env) => {
           type: "asset/resource",
           generator: {
             filename: "images/[name][ext]",
+          },
+          parser: {
+            dataUrlCondition: {
+              maxSize: 10 * 1024, // Сохраняет картинки инлайн в base64, если < 10Кб
+            },
           },
         },
         {
@@ -134,13 +132,10 @@ export default (env) => {
         "@shared": resolve(__dirname, "src", "shared"),
       },
       mainFiles: ["index"],
-      extensions: [".js", ".jsx"],
+      extensions: [".js"],
     },
     optimization: {
       minimizer: ["...", new CssMinimizerPlugin()],
-      splitChunks: {
-        chunks: "all",
-      },
     },
   };
 };
