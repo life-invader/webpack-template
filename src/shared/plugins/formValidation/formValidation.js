@@ -7,12 +7,6 @@ export class FormValidation {
     inputError: "[data-js-form-input-error]",
   };
 
-  errorMessages = {
-    valueMissing: () => "Заполните поле",
-    tooShort: ({ minLength }) => `Значение меньше ${minLength} символов`,
-    tooLong: ({ maxLength }) => `Значение длиннее ${maxLength} символов`,
-  };
-
   inputMasks = {
     name: {
       mask: /^[A-Za-zА-Яа-яЁё]/gi,
