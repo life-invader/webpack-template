@@ -1,5 +1,5 @@
 import { renderToStaticMarkup } from "react-dom/server";
-import { Page } from "@shared/page";
+import { Page } from "@shared/ui/page";
 
 const pages = [
   {

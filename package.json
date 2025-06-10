@@ -46,6 +46,7 @@
   },
   "browserslist": "> 0.25%, not dead",
   "dependencies": {
+    "imask": "^7.6.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   }
